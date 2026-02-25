@@ -6,6 +6,10 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 
 ---
 
+## 🔐 Security Note
+API keys are never committed to source control.
+Secrets are injected using environment variables following industry best practices.
+
 ## 📌 Project Overview
 
 **Smart AI Email Assistant** solves a real-world problem: email fatigue. Users spend countless hours drafting professional emails. This tool **instantly generates intelligent, contextually-relevant replies** with customizable tones, enabling users to focus on what matters most.
