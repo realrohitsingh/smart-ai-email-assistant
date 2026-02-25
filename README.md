@@ -11,6 +11,7 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 **Smart AI Email Assistant** solves a real-world problem: email fatigue. Users spend countless hours drafting professional emails. This tool **instantly generates intelligent, contextually-relevant replies** with customizable tones, enabling users to focus on what matters most.
 
 ### Why This Project Matters
+
 - **Real-world Problem**: Email is ubiquitous in professional life; automating reply generation is highly valuable
 - **Full-Stack Implementation**: Demonstrates end-to-end development from backend API to browser extension
 - **AI Integration**: Practical implementation of modern generative AI (Google Gemini API)
@@ -63,9 +64,11 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 ## 🔹 Core Components
 
 ### 1. **email-writer-sb** (Spring Boot Backend)
+
 **Purpose**: Core business logic and AI orchestration
 
 **Key Responsibilities**:
+
 - RESTful API endpoints for email generation requests
 - Integration with Google Gemini 2.5 Flash API
 - Request validation and error handling
@@ -74,6 +77,7 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 - CORS configuration for frontend & extension compatibility
 
 **Technical Highlights**:
+
 - Built with **Java 21** for modern language features
 - **Spring Boot 3.x** with reactive WebClient for non-blocking API calls
 - Proper HTTP status codes and error responses
@@ -82,9 +86,11 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 ---
 
 ### 2. **email-writer-react** (React Web Application)
+
 **Purpose**: Interactive web-based testing playground and UI showcase
 
 **Key Responsibilities**:
+
 - User-friendly interface for generating email replies
 - Tone selection dropdown (Professional, Casual, Friendly, Formal)
 - Real-time request/response handling with loading states
@@ -92,6 +98,7 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 - Responsive Material-UI design for all devices
 
 **Technical Highlights**:
+
 - Built with **React 18+** and **Vite** for fast development and optimized builds
 - **Axios** for API communication with proper error handling
 - **Material-UI** components for professional, accessible design
@@ -101,9 +108,11 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 ---
 
 ### 3. **email-writer-ext** (Chrome Extension)
+
 **Purpose**: Direct Gmail integration for seamless workflow enhancement
 
 **Key Responsibilities**:
+
 - Content script injection to detect email contexts in Gmail
 - Extract email subject, recipient, and previous conversation
 - Send context to backend API for intelligent response generation
@@ -111,6 +120,7 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 - One-click copy or send functionality
 
 **Technical Highlights**:
+
 - Uses **Chrome Extension Manifest V3** (latest standard)
 - Secure content script for email data handling
 - Message passing between popup and content scripts
@@ -120,22 +130,23 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 
 ## ✨ Features (Detailed)
 
-| Feature | Description | Impact |
-|---------|-------------|--------|
-| **AI-Powered Reply Generation** | Uses Google Gemini 2.5 Flash API to understand email context and generate intelligent, contextually-relevant responses | Saves 5-10 minutes per email |
-| **Tone Selection** | 4 distinct tones: Professional, Casual, Friendly, Formal — let users match email personality | Ensures appropriate communication style |
-| **Gmail Integration** | Chrome Extension seamlessly integrates with Gmail workflow — no context switching | Improves user experience & adoption |
-| **Copy-to-Clipboard** | One-click copy functionality for generated responses | Increases user engagement |
-| **Web Playground** | React-based interface for testing and demonstrating capabilities | Easy testing & showcasing |
-| **Responsive Design** | Works on desktop, tablet, and mobile devices | Universal accessibility |
-| **Error Handling** | Graceful error messages when API fails or rate limits reached | Professional UX |
-| **Security** | API keys stored in environment variables, never exposed in frontend | Production-ready security |
+| Feature                         | Description                                                                                                            | Impact                                  |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| **AI-Powered Reply Generation** | Uses Google Gemini 2.5 Flash API to understand email context and generate intelligent, contextually-relevant responses | Saves 5-10 minutes per email            |
+| **Tone Selection**              | 4 distinct tones: Professional, Casual, Friendly, Formal — let users match email personality                           | Ensures appropriate communication style |
+| **Gmail Integration**           | Chrome Extension seamlessly integrates with Gmail workflow — no context switching                                      | Improves user experience & adoption     |
+| **Copy-to-Clipboard**           | One-click copy functionality for generated responses                                                                   | Increases user engagement               |
+| **Web Playground**              | React-based interface for testing and demonstrating capabilities                                                       | Easy testing & showcasing               |
+| **Responsive Design**           | Works on desktop, tablet, and mobile devices                                                                           | Universal accessibility                 |
+| **Error Handling**              | Graceful error messages when API fails or rate limits reached                                                          | Professional UX                         |
+| **Security**                    | API keys stored in environment variables, never exposed in frontend                                                    | Production-ready security               |
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Backend
+
 ```
 ✓ Java 21              - Modern JDK with latest language features
 ✓ Spring Boot 3.x      - Enterprise-grade framework
@@ -146,6 +157,7 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 ```
 
 ### Frontend (Web App)
+
 ```
 ✓ React 18+           - Component-based UI library
 ✓ Vite                - Next-generation build tool (⚡ fast)
@@ -155,6 +167,7 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 ```
 
 ### Chrome Extension
+
 ```
 ✓ JavaScript (Vanilla) - Extension scripting
 ✓ Manifest V3         - Latest Chrome extension standard
@@ -163,6 +176,7 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 ```
 
 ### AI & APIs
+
 ```
 ✓ Google Gemini 2.5 Flash - Advanced generative AI model
 ✓ REST API Integration    - Standard HTTP communication
@@ -174,6 +188,7 @@ This project demonstrates **modern full-stack architecture**, **clean REST API d
 ## ⚙️ Setup & Installation Guide
 
 ### Prerequisites
+
 - **Java 21+** (Backend)
 - **Node.js 18+** (Frontend)
 - **npm or yarn** (Frontend package manager)
@@ -194,14 +209,17 @@ cd email-writer-sb
 ```
 
 **Install Dependencies & Build**:
+
 ```bash
 mvn clean install
 ```
 
 **Configure API Keys** (`application.properties`):
+
 ```properties
 # Gemini API Configuration
-gemini.api.url=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
+# do not hardcode the endpoint here; use environment variables for safety
+gemini.api.url=${GEMINI_API_URL}
 gemini.api.key=${GEMINI_API_KEY}
 
 # Server Configuration
@@ -210,16 +228,19 @@ server.servlet.context-path=/api
 ```
 
 **Set Environment Variable** (Linux/Mac):
+
 ```bash
 export GEMINI_API_KEY="your-actual-api-key-here"
 ```
 
 **Windows**:
+
 ```cmd
 set GEMINI_API_KEY=your-actual-api-key-here
 ```
 
 **Start Backend**:
+
 ```bash
 mvn spring-boot:run
 ```
@@ -233,16 +254,19 @@ cd ../email-writer-react
 ```
 
 **Install Dependencies**:
+
 ```bash
 npm install
 ```
 
 **Configure API Endpoint** (`.env` file):
+
 ```env
 VITE_API_URL=http://localhost:8080/api
 ```
 
 **Start Development Server**:
+
 ```bash
 npm run dev
 ```
@@ -265,10 +289,12 @@ cd ../email-writer-ext
 5. The extension should now appear in your Chrome extensions list
 
 **Verify Installation**:
+
 - Click the extension icon in Chrome toolbar
 - You should see the Smart AI Email Assistant popup
 
 **Using the Extension**:
+
 1. Open Gmail and open an email you want to reply to
 2. Click the extension icon
 3. Select your preferred tone
@@ -279,14 +305,14 @@ cd ../email-writer-ext
 
 ## 🔐 Security Best Practices Implemented
 
-| Security Feature | Implementation |
-|------------------|-----------------|
-| **API Key Management** | Stored in environment variables, never hardcoded |
-| **CORS Configuration** | Restricted to known frontend origins |
-| **Request Validation** | Backend validates all incoming requests |
-| **No Data Persistence** | Emails not stored on servers (privacy-first) |
-| **HTTPS Ready** | API designed to work with HTTPS in production |
-| **Error Messages** | Generic error messages to prevent info leakage |
+| Security Feature        | Implementation                                   |
+| ----------------------- | ------------------------------------------------ |
+| **API Key Management**  | Stored in environment variables, never hardcoded |
+| **CORS Configuration**  | Restricted to known frontend origins             |
+| **Request Validation**  | Backend validates all incoming requests          |
+| **No Data Persistence** | Emails not stored on servers (privacy-first)     |
+| **HTTPS Ready**         | API designed to work with HTTPS in production    |
+| **Error Messages**      | Generic error messages to prevent info leakage   |
 
 ---
 
@@ -316,15 +342,15 @@ cd ../email-writer-ext
 
 This project showcases:
 
-✅ **Backend Development**: REST API design, Spring Boot framework, API integration  
-✅ **Frontend Development**: React components, state management, async operations  
-✅ **Chrome Extension Development**: Content scripts, message passing, DOM manipulation  
-✅ **Cloud API Integration**: Working with Google Gemini API, handling async responses  
-✅ **Full-Stack Architecture**: End-to-end system design and component communication  
-✅ **Security**: API key management, CORS, request validation  
-✅ **DevOps Mindset**: Environment-based configuration, modular deployment  
-✅ **Problem-Solving**: Real-world problem identification and solution design  
-✅ **Code Organization**: Clean code, modular structure, separation of concerns  
+✅ **Backend Development**: REST API design, Spring Boot framework, API integration
+✅ **Frontend Development**: React components, state management, async operations
+✅ **Chrome Extension Development**: Content scripts, message passing, DOM manipulation
+✅ **Cloud API Integration**: Working with Google Gemini API, handling async responses
+✅ **Full-Stack Architecture**: End-to-end system design and component communication
+✅ **Security**: API key management, CORS, request validation
+✅ **DevOps Mindset**: Environment-based configuration, modular deployment
+✅ **Problem-Solving**: Real-world problem identification and solution design
+✅ **Code Organization**: Clean code, modular structure, separation of concerns
 
 ---
 
@@ -339,6 +365,7 @@ Contributions are welcome! To contribute:
 5. Open a Pull Request
 
 ### Guidelines
+
 - Follow clean code principles
 - Add comments for complex logic
 - Test your changes thoroughly
@@ -354,8 +381,8 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ## 👨‍💻 Author
 
-**Rohit Singh**  
-GitHub: [@realrohitsingh](https://github.com/realrohitsingh)  
+**Rohit Singh**
+GitHub: [@realrohitsingh](https://github.com/realrohitsingh)
 Portfolio: [Your Portfolio Link]
 
 ---
