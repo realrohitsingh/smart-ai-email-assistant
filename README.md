@@ -387,7 +387,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 **Rohit Singh**
 GitHub: [@realrohitsingh](https://github.com/realrohitsingh)
-Portfolio: [Your Portfolio Link]
+Portfolio: [https://www.rohitks.site]
 
 ---
 
